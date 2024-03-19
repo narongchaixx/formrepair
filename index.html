@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <link rel="stylesheet" href="styles.css">
+    	<?!= HtmlService.createHtmlOutputFromFile('css').getContent() ?>
+</head>
+
+<body> 
+  <div id="app">
+  <div class="wrapper">
+    <div class="title">
+      ใบรับแจ้งและแก้ไขปัญหาระบบสารสนเทศ สส.ทหาร
+    </div>
+    <v-app>
+      <v-main>
+        <v-container>
+          <v-form ref="form" @submit.prevent="submit" :disabled="loading">
+            <v-card :loading="loading" outlined>
+              <!-- <v-img class="white--text align-end" height="200px" src="https://source.unsplash.com/random"> -->
+                <v-card-title>{{ title }}</v-card-title>
+                <v-card-subtitle v-if="subtitle">{{ subtitle }}</v-card-subtitle>
+              </v-img>
+              <v-card-text>
+                <v-row>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.name"></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.agency"></my-input>
+                  </v-col>
+                  <!-- <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.samnak"></my-input>
+                  </v-col>                                      -->
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.phone"></my-input>
+                  </v-col>
+                  <!-- <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.timejang"></my-input>
+                  </v-col>                   -->
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.pb"></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.jai"></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.datejai"></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.timejai"></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.namepati" ></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.datepati"></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.timepati"></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.pongarndumnern"></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.rj45"></my-input>
+                  </v-col> 
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.cableutp"></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.rang"></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.another"></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.finish"></my-input>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.nfinish"></my-input>
+                  </v-col>                                                                   
+                  <v-col cols="12" sm="12" md="6" lg="4" xl="3">
+                    <my-input :item="form.signature"></my-input>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-btn type="submit" color="primary" :disabled="loading" large depressed>ส่งแบบฟอร์ม</v-btn>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+          </v-form>
+          <v-snackbar v-model="snackbar.show" :color="snackbar.color" bottom>
+            {{ snackbar.message }}
+            <template v-slot:action="{ attrs }">
+              <v-btn color="white" text v-bind="attrs" :timeout="snackbar.timeout" @click="snackbar.show = false">
+                <v-icon>mdi-close</v-icon>
+              </v-btn>
+            </template>
+          </v-snackbar>
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <?!= link("vuejs.html"); ?>
+</body>
+
+</html>
